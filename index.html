@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>운동 기록지</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="workout-card" aria-labelledby="page-title">
+      <div class="card-header">
+        <p class="eyebrow">TODAY'S WORKOUT</p>
+        <h1 id="page-title">운동 기록지</h1>
+        <p class="subtitle">오늘의 움직임을 기록하고, 나만의 리듬을 만들어 보세요.</p>
+      </div>
+
+      <div class="timer-panel" aria-label="현재 남은 시간">
+        <div class="timer-label">
+          <span class="status-dot"></span>
+          현재 남은 시간
+        </div>
+        <div class="timer-value">00<span>:</span>30<span>:</span>00</div>
+        <div class="timer-track" aria-hidden="true"><span></span></div>
+        <p class="timer-caption">운동을 시작하면 시간이 카운트됩니다</p>
+      </div>
+
+      <form class="workout-form">
+        <fieldset class="workout-types">
+          <legend>운동 종류</legend>
+          <div class="type-grid">
+            <label class="type-option">
+              <input type="radio" name="workout" value="cycling" checked>
+              <span class="type-content"><span class="type-icon">◒</span><span>사이클</span></span>
+            </label>
+            <label class="type-option">
+              <input type="radio" name="workout" value="jogging">
+              <span class="type-content"><span class="type-icon">↗</span><span>조깅</span></span>
+            </label>
+            <label class="type-option">
+              <input type="radio" name="workout" value="marathon">
+              <span class="type-content"><span class="type-icon">⌁</span><span>마라톤</span></span>
+            </label>
+            <label class="type-option">
+              <input type="radio" name="workout" value="hiking">
+              <span class="type-content"><span class="type-icon">△</span><span>등산</span></span>
+            </label>
+            <label class="type-option">
+              <input type="radio" name="workout" value="jump-rope">
+              <span class="type-content"><span class="type-icon">∿</span><span>줄넘기</span></span>
+            </label>
+            <label class="type-option">
+              <input type="radio" name="workout" value="other">
+              <span class="type-content"><span class="type-icon">＋</span><span>기타</span></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label class="duration-field" for="duration">
+          <span>운동 시간</span>
+          <select id="duration" name="duration" onchange="updateTimerFromSelection()">
+            <option value="600">10분</option>
+            <option value="1200">20분</option>
+            <option value="1800" selected>30분</option>
+            <option value="2400">40분</option>
+            <option value="3000">50분</option>
+            <option value="3600">60분</option>
+            <option value="4200">70분</option>
+            <option value="4800">80분</option>
+            <option value="5400">90분</option>
+            <option value="6000">100분</option>
+            <option value="6600">110분</option>
+            <option value="7200">120분</option>
+          </select>
+        </label>
+
+        <div class="actions">
+          <button class="button button-primary" type="button" onclick="startTimer()"><span>▶</span> 시작</button>
+          <button class="button button-secondary" type="button" onclick="stopTimer()"><span>Ⅱ</span> 정지</button>
+          <button class="button button-ghost" type="button" onclick="resetTimer()"><span>↻</span> 초기화</button>
+        </div>
+      </form>
+    </section>
+
+    <p class="page-note">작은 습관이 더 건강한 하루를 만듭니다.</p>
+  </main>
+  <script src="index.js"></script>
+</body>
+</html>
